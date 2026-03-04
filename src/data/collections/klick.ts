@@ -1,0 +1,325 @@
+import { Product } from "../types";
+import FKL_101 from "@/assets/klick/FKL-101.jpg";
+import FKL_111 from "@/assets/klick/FKL-111.jpg";
+import FKL_001 from "@/assets/klick/FKL-001.jpg";
+import FKL_002 from "@/assets/klick/FKL-002.jpg";
+import FKL_003 from "@/assets/klick/FKL-003.jpg";
+import FKL_102 from "@/assets/klick/FKL-102.jpg";
+import FKL_004 from "@/assets/klick/FKL-004.jpg";
+import FKL_014 from "@/assets/klick/FKL-014.jpg";
+import FKL_113 from "@/assets/klick/FKL-113.jpg";
+import FKL_131 from "@/assets/klick/FKL-131.jpg";
+import FKL_132 from "@/assets/klick/FKL-132.jpg";
+import FKL_018 from "@/assets/klick/FKL-018.jpg";
+import FKL_016 from "@/assets/klick/FKL-016.jpg";
+import FKL_017 from "@/assets/klick/FKL-017.jpg";
+import FKL_015 from "@/assets/klick/FKL-015.jpg";
+import FKL_006 from "@/assets/klick/FKL-006.jpg";
+import FKL_007 from "@/assets/klick/FKL-007.jpg";
+import FKL_008 from "@/assets/klick/FKL-008.jpg";
+import FKL_009 from "@/assets/klick/FKL-009.jpg";
+import FKL_010 from "@/assets/klick/FKL-010.jpg";
+import FKL_011 from "@/assets/klick/FKL-011.jpg";
+import FKL_012 from "@/assets/klick/FKL-012.jpg";
+import FKL_013 from "@/assets/klick/FKL-013.jpg";
+import FKL_019 from "@/assets/klick/FKL-019.jpg";
+import FKL_020 from "@/assets/klick/FKL-020.jpg";
+import FKL_021 from "@/assets/klick/FKL-021.jpg";
+import FKL_005 from "@/assets/klick/FKL-005.jpg";
+import FKL_114 from "@/assets/klick/FKL-114.jpg";
+import FKL_115 from "@/assets/klick/FKL-115.jpg";
+
+export const klickProducts: Product[] = [
+    {
+        id: "fkl-101",
+        name: "FKL-101 Single Lever Basin Mixer 450mm Braided Hose",
+        price: "₹2448",
+        img: FKL_101,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Single lever basin mixer with 450mm braided hose.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-111",
+        name: "FKL-111 Exposed Part of Single Lever Concealed Basin Mixer",
+        price: "₹1934",
+        img: FKL_111,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Exposed part of single lever concealed basin mixer.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-001",
+        name: "FKL-001 Pillar Cock Regular",
+        price: "₹924",
+        img: FKL_001,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Regular pillar cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-002",
+        name: "FKL-002 Pillar Cock Long Neck",
+        price: "₹1088",
+        img: FKL_002,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Long neck pillar cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-003",
+        name: "FKL-003 Pillar Cock Tall Boy",
+        price: "₹2348",
+        img: FKL_003,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Tall boy pillar cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-102",
+        name: "FKL-102 Single Lever Basin Mixer Tall Boy 600mm Hose",
+        price: "₹3928",
+        img: FKL_102,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Tall boy basin mixer with braided hose.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-004",
+        name: "FKL-004 Swan Neck Left",
+        price: "₹1558",
+        img: FKL_004,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Swan neck left faucet.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-014",
+        name: "FKL-014 Center Hole Basin Mixer with 450mm Hose",
+        price: "₹2774",
+        img: FKL_014,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Center hole basin mixer.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-113",
+        name: "FKL-113 Exposed Part of S/L Con. Diverter 40mm",
+        price: "₹1024",
+        img: FKL_113,
+        category: "Faucets",
+        collection: "Klick",
+        description: "F-113 Exposed part of S/L Con. diverter 40mm high flow, F-113A Exposed part of S/L Con. diverter 35mm",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+
+    {
+        id: "fkl-131",
+        name: "FKL-131 Bath Tub Spout",
+        price: "₹868",
+        img: FKL_131,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Bath tub spout.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-132",
+        name: "FKL-132 Bath Tub Spout with Hand Shower Provision",
+        price: "₹1424",
+        img: FKL_132,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Bath tub spout with hand shower provision.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-018",
+        name: "FKL-018 Wall Mixer with Telephonic Shower Provision",
+        price: "₹4034",
+        img: FKL_018,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Wall mixer with telephonic shower provision.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-016",
+        name: "FKL-016 Wall Mixer with Overhead Shower Function",
+        price: "₹4034",
+        img: FKL_016,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Wall mixer with overhead shower function.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-017",
+        name: "FKL-017 Wall Mixer 3 in 1",
+        price: "₹4644",
+        img: FKL_017,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Three in one wall mixer.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-015",
+        name: "FKL-015 Wall Mixer Non Telephonic",
+        price: "₹3144",
+        img: FKL_015,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Non telephonic wall mixer.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-006",
+        name: "FKL-006 Bib Cock with Foam Flow",
+        price: "₹834",
+        img: FKL_006,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Bib cock with foam flow.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-007",
+        name: "FKL-007 Bib Cock Long with Foam Flow",
+        price: "₹988",
+        img: FKL_007,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Long bib cock with foam flow.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-008",
+        name: "FKL-008 Bib Cock with Nozzle",
+        price: "₹948",
+        img: FKL_008,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Bib cock with nozzle.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-009",
+        name: "FKL-009 Two Way Bib Cock with Foam Flow",
+        price: "₹1238",
+        img: FKL_009,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Two way bib cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-010",
+        name: "FKL-010 Angular Stop Cock",
+        price: "₹614",
+        img: FKL_010,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Angular stop cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-011",
+        name: "FKL-011 Two Way Angular Stop Cock",
+        price: "₹1168",
+        img: FKL_011,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Two way angular stop cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-012",
+        name: "FKL-012 Concealed Stop Cock 15mm",
+        price: "₹1054",
+        img: FKL_012,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Concealed stop cock 15mm.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-013",
+        name: "FKL-013 Concealed Stop Cock 20mm",
+        price: "₹1164",
+        img: FKL_013,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Concealed stop cock 20mm.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-019",
+        name: "FKL-019 Sink Cock Wall Mounted",
+        price: "₹1378",
+        img: FKL_019,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Wall mounted sink cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-020",
+        name: "FKL-020 Sink Cock Table Mounted",
+        price: "₹1558",
+        img: FKL_020,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Table mounted sink cock.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-021",
+        name: "FKL-021 Sink Mixer Wall Mounted",
+        price: "₹3084",
+        img: FKL_021,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Wall mounted sink mixer.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-005",
+        name: "FKL-005 Swan Neck Right",
+        price: "₹1558",
+        img: FKL_005,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Swan neck right faucet.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-114",
+        name: "FKL-114 Exposed Part of S/L Con. Diverter 45mm",
+        price: "₹1058",
+        img: FKL_114,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Exposed part diverter 45mm.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+    {
+        id: "fkl-115",
+        name: "FKL-115 Exposed Part of S/L Con. Diverter 3 Inlet",
+        price: "₹1058",
+        img: FKL_115,
+        category: "Faucets",
+        collection: "Klick",
+        description: "Exposed part diverter 3 inlet.",
+        specifications: { Material: "Brass", Finish: "Chrome", Warranty: "5 Years" },
+    },
+
+];
