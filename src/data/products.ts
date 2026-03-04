@@ -46,7 +46,7 @@ import FEZ_017 from "@/assets/FEZ-017.jpg";
 import FEZ_018 from "@/assets/FEZ-018.jpg";
 import FEZ_019 from "@/assets/FEZ-019.jpg";
 import FEZ_050 from "@/assets/FEZ-050.jpg";
-import FEZ_101 from "@/assets/FEZ-101.jpg";
+import FEZ_101 from "@/assets/fez-101.jpg";
 import FEZ_102 from "@/assets/FEZ-102.jpg";
 import FEZ_111 from "@/assets/FEZ-111.jpg";
 import FEZ_113 from "@/assets/FEZ-113.jpg";
