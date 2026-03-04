@@ -1,4 +1,3 @@
-
 import { Product } from "./types";
 // ================= FVI Series =================
 import FVI_001 from "@/assets/fvi-001.jpg";
@@ -53,7 +52,7 @@ import FEZ_113 from "@/assets/FEZ-113.jpg";
 import FEZ_114 from "@/assets/FEZ-114.jpg";
 import FEZ_115 from "@/assets/FEZ-115.jpg";
 import FEZ_121 from "@/assets/FEZ-121.jpg";
-import FEZ_122 from "@/assets/FEZ-122.jpg";
+import FEZ_122 from "@/assets/fez-122.jpg";
 import FEZ_131 from "@/assets/FEZ-131.jpg";
 import FEZ_132 from "@/assets/FEZ-132.jpg";
 import FEL_001 from "@/assets/FEL-001.jpg";
@@ -76,7 +75,7 @@ import FEL_101 from "@/assets/FEL-101.jpg";
 import FEL_102 from "@/assets/FEL-102.jpg";
 import FEL_111 from "@/assets/FEL-111.jpg";
 import FEL_113 from "@/assets/FEL-113.jpg";
-import FEL_113A from "@/assets/FEL-113A.jpg";
+import FEL_113A from "@/assets/fel-113a.jpg";
 import FEL_114 from "@/assets/FEL-114.jpg";
 import FEL_115 from "@/assets/FEL-115.jpg";
 import FEL_121 from "@/assets/FEL-121.jpg";
@@ -93,7 +92,7 @@ import FKE_007 from "@/assets/FKE-007.jpg";
 import FKE_009 from "@/assets/FKE-009.jpg";
 import FKE_010 from "@/assets/FKE-010.jpg";
 import FKE_011 from "@/assets/FKE-011.jpg";
-import FKE_016 from "@/assets/FKE-016.jpg";
+import FKE_016 from "@/assets/fke-016.jpg";
 import FKE_017 from "@/assets/FKE-017.jpg";
 import FKE_018 from "@/assets/FKE-018.jpg";
 import FKE_019 from "@/assets/FKE-019.jpg";
@@ -102,16 +101,13 @@ import FKE_021 from "@/assets/FKE-021.jpg";
 import FKE_050 from "@/assets/FKE-050.jpg";
 import FKE_111 from "@/assets/FKE-111.jpg";
 import FKE_113 from "@/assets/FKE-113.jpg";
-import FKE_113A from "@/assets/FKE-113A.jpg";
+import FKE_113A from "@/assets/fke-113a.jpg";
 import FKE_114 from "@/assets/FKE-114.jpg";
 import FKE_115 from "@/assets/FKE-115.jpg";
 import FKE_121 from "@/assets/FKE-121.jpg";
 import FKE_122 from "@/assets/FKE-122.jpg";
 import FKE_131 from "@/assets/FKE-131.jpg";
 import FKE_132 from "@/assets/FKE-132.jpg";
-
-
-
 
 export const allProducts: Product[] = [
 
