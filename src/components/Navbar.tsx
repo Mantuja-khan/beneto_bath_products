@@ -1,12 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Menu, X, ChevronDown, Search, ShoppingCart, Minus, Plus, Trash2 } from "lucide-react";
 import { categories, allCombinedProducts as allProducts } from "@/data/products";
 import { collections, collectionDetails, brandExclusiveProducts } from "@/data/collections";
 import { useNavigate } from "react-router-dom";
 import faucetImg from "@/assets/product-faucet.jpg";
 import showerImg from "@/assets/product-shower.jpg";
 import accessoriesImg from "@/assets/product-accessories.jpg";
+import { useCart } from "@/contexts/CartContext";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const categoryImages: Record<string, string> = {
   Faucets: faucetImg,
@@ -37,6 +45,7 @@ const Navbar = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { cart, removeFromCart, updateQuantity, totalPrice, totalItems } = useCart();
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
@@ -119,6 +128,78 @@ const Navbar = () => {
     setQuery("");
     navigate(`/product/${id}`);
   };
+
+  const CartDrawer = () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <button className="relative p-2 text-black hover:scale-110 transition-transform duration-300" aria-label="Shopping Cart">
+          <ShoppingCart size={22} className="text-black" />
+          {totalItems > 0 && (
+            <span className="absolute top-0 right-0 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+              {totalItems}
+            </span>
+          )}
+        </button>
+      </SheetTrigger>
+      <SheetContent className="w-full sm:max-w-md flex flex-col bg-background/95 backdrop-blur z-[100]">
+        <SheetHeader className="mb-6">
+          <SheetTitle className="font-heading text-2xl">Your Cart</SheetTitle>
+        </SheetHeader>
+
+        <div className="flex-1 overflow-y-auto pr-2">
+          {cart.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-full text-muted-foreground gap-4">
+              <ShoppingCart size={48} className="opacity-20" />
+              <p className="font-body text-sm">Your cart is empty</p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-6">
+              {cart.map((item) => (
+                <div key={item.id} className="flex gap-4 border-b border-border pb-6">
+                  <img src={item.img} alt={item.name} className="w-20 h-20 object-contain bg-secondary rounded" />
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="font-body text-sm font-semibold max-w-[200px] truncate">{item.name}</h4>
+                      <p className="text-xs text-muted-foreground mt-1">{item.price}</p>
+                    </div>
+                    <div className="flex items-center justify-between mt-3">
+                      <div className="flex items-center gap-3 bg-secondary rounded px-2 py-1">
+                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="text-muted-foreground hover:text-foreground">
+                          <Minus size={14} />
+                        </button>
+                        <span className="text-xs font-semibold w-6 text-center">{item.quantity}</span>
+                        <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="text-muted-foreground hover:text-foreground">
+                          <Plus size={14} />
+                        </button>
+                      </div>
+                      <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-600 transition-colors p-1" aria-label="Remove item">
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {cart.length > 0 && (
+          <div className="pt-6 border-t border-border mt-auto">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-body text-sm font-semibold">Subtotal</span>
+              <span className="font-heading text-xl font-bold">₹{totalPrice.toLocaleString()}</span>
+            </div>
+            <Link
+              to="/contact"
+              className="w-full block text-center bg-primary text-primary-foreground py-3 font-body text-sm uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
+            >
+              Checkout / Enquire
+            </Link>
+          </div>
+        )}
+      </SheetContent>
+    </Sheet>
+  );
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border transition-transform duration-300 ease-in-out ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
@@ -252,6 +333,7 @@ const Navbar = () => {
               >
                 <Search size={18} />
               </button>
+              <CartDrawer />
               <a
                 href="/catalogue.pdf"
                 download
@@ -274,6 +356,7 @@ const Navbar = () => {
             <button onClick={() => setSearchOpen(true)} className="text-black p-2 hover:scale-110 transition-transform duration-300" aria-label="Search">
               <Search size={22} />
             </button>
+            <CartDrawer />
             <button onClick={() => setOpen(!open)} className="text-black p-2 hover:scale-110 transition-transform duration-300">
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>

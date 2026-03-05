@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import { CartProvider } from "./contexts/CartContext";
 
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
@@ -24,23 +25,25 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<div className="min-h-screen bg-background" />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/collections" element={<CollectionsPage />} />
-            <Route path="/collection/:name" element={<CollectionPage />} />
-            <Route path="/why-us" element={<WhyUsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Suspense fallback={<div className="min-h-screen bg-background" />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
+              <Route path="/collections" element={<CollectionsPage />} />
+              <Route path="/collection/:name" element={<CollectionPage />} />
+              <Route path="/why-us" element={<WhyUsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

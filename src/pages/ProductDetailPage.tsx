@@ -3,8 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getProductById, getRelatedProducts } from "@/data/products";
-import { ArrowLeft, Tag } from "lucide-react";
+import { ArrowLeft, Tag, ShoppingCart } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
+import { useCart } from "@/contexts/CartContext";
 // https://i.pinimg.com/1200x/41/dd/7c/41dd7c1f547a6b23b639411f8f012ff7.jpg
 
 const ImageMagnifier = ({ src, alt }: { src: string; alt: string }) => {
@@ -60,6 +61,7 @@ const ImageMagnifier = ({ src, alt }: { src: string; alt: string }) => {
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const product = getProductById(id || "");
+  const { addToCart } = useCart();
 
   if (!product) {
     return (
@@ -166,9 +168,15 @@ const ProductDetailPage = () => {
 
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-3">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="bg-accent text-white px-8 py-3 font-body text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-opacity flex items-center justify-center gap-2 flex-1 lg:flex-none"
+                  >
+                    <ShoppingCart size={16} /> Add to Cart
+                  </button>
                   <Link
                     to="/contact"
-                    className="bg-primary text-primary-foreground px-8 py-3 font-body text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-opacity flex-1 text-center lg:flex-none"
+                    className="bg-primary text-primary-foreground px-8 py-3 font-body text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-opacity flex items-center justify-center flex-1 lg:flex-none"
                   >
                     Enquire Now
                   </Link>
