@@ -8,6 +8,7 @@ import faucetImg from "@/assets/product-faucet.jpg";
 import showerImg from "@/assets/product-shower.jpg";
 import accessoriesImg from "@/assets/product-accessories.jpg";
 import logoImg from "@/assets/logo.png";
+import cataloguePdf from "@/assets/beneto_catalogue.pdf";
 import { useCart } from "@/contexts/CartContext";
 import {
   Sheet,
@@ -227,8 +228,9 @@ const Navbar = () => {
               <X size={20} />
             </button>
             <a
-              href="/catalogue.pdf"
-              download
+              href={cataloguePdf}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:block bg-primary text-primary-foreground px-4 py-2 text-[10px] uppercase tracking-[0.15em] font-body hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               Catalogue
@@ -339,8 +341,9 @@ const Navbar = () => {
               </button>
               <CartDrawer />
               <a
-                href="/catalogue.pdf"
-                download
+                href={cataloguePdf}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary text-primary-foreground px-4 py-2 text-[10px] uppercase tracking-[0.15em] font-body hover:opacity-90 transition-opacity whitespace-nowrap"
               >
                 Catalogue
@@ -351,8 +354,9 @@ const Navbar = () => {
           {/* Mobile */}
           <div className="flex items-center gap-2 lg:hidden">
             <a
-              href="/catalogue.pdf"
-              download
+              href={cataloguePdf}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] font-body hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               Catalogue
@@ -458,6 +462,15 @@ const Navbar = () => {
               </Link>
             )
           )}
+          <a
+            href={cataloguePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="mt-3 text-center bg-primary text-primary-foreground py-2.5 text-xs uppercase tracking-[0.15em] font-body hover:opacity-90 transition-opacity font-semibold rounded-sm shadow-sm"
+          >
+            Open Catalogue (PDF)
+          </a>
         </nav>
       )}
     </header>

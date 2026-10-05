@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import bgImg from "@/assets/hero-bathroom.jpg";
 import logoImg from "@/assets/logo.png";
+import cataloguePdf from "@/assets/beneto_catalogue.pdf";
 
 const Footer = () => (
   <footer
@@ -34,6 +35,16 @@ const Footer = () => (
             ].map((l) => (
               <li key={l.label}><Link to={l.path} className="hover:opacity-100 transition-opacity">{l.label}</Link></li>
             ))}
+            <li>
+              <a
+                href={cataloguePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100 transition-opacity inline-flex items-center gap-1.5"
+              >
+                Catalogue <span className="text-[9px] bg-accent text-accent-foreground px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">PDF</span>
+              </a>
+            </li>
           </ul>
         </div>
         <div>
