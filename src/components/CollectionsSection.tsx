@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { collectionDetails } from "@/data/collections";
 import AnimatedSection from "./AnimatedSection";
 
@@ -11,7 +12,7 @@ const CollectionsSection = () => (
 
         {/* Heading with animated wavy underline */}
         <div className="flex flex-col items-center mb-12">
-          <h2 className="section-title text-blue-600">Our Collections</h2>
+          <h2 className="section-title text-foreground">Our Collections</h2>
           <div className="mt-2 overflow-hidden">
             <svg
               viewBox="0 0 200 12"
@@ -32,7 +33,7 @@ const CollectionsSection = () => (
                 <path
                   d="M0,6 C10,0 20,12 30,6 C40,0 50,12 60,6 C70,0 80,12 90,6 C100,0 110,12 120,6 C130,0 140,12 150,6 C160,0 170,12 180,6 C190,0 200,12 210,6 C220,0 230,12 240,6 C250,0 260,12 270,6 C280,0 290,12 300,6 C310,0 320,12 330,6 C340,0 350,12 360,6 C370,0 380,12 390,6 C400,0 410,12 420,6"
                   fill="none"
-                  stroke="#D4A017"
+                  stroke="#FDC601"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
@@ -42,24 +43,31 @@ const CollectionsSection = () => (
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
-          {collectionDetails.slice(0, 4).map((collection) => (
-            <Link
+          {collectionDetails.slice(0, 4).map((collection, idx) => (
+            <motion.div
               key={collection.name}
-              to={`/collection/${collection.name.toLowerCase()}`}
-              className="bg-background border border-border hover:border-foreground/30 transition-all p-0 text-center cursor-pointer group hover:shadow-md overflow-hidden flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="aspect-square bg-secondary overflow-hidden">
-                <img
-                  src={collection.img}
-                  alt={collection.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
-                />
-              </div>
-              <div className="p-4 bg-background">
-                <h3 className="font-heading text-base font-semibold group-hover:text-accent transition-colors">{collection.name}</h3>
-                <p className="text-muted-foreground text-[10px] font-body mt-1 uppercase tracking-widest">Collection</p>
-              </div>
-            </Link>
+              <Link
+                to={`/collection/${collection.name.toLowerCase()}`}
+                className="bg-background border border-border hover:border-foreground/30 transition-all p-0 text-center cursor-pointer group hover:shadow-md overflow-hidden flex flex-col h-full"
+              >
+                <div className="aspect-square bg-secondary overflow-hidden">
+                  <img
+                    src={collection.img}
+                    alt={collection.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                  />
+                </div>
+                <div className="p-4 bg-background">
+                  <h3 className="font-heading text-base font-semibold group-hover:text-accent transition-colors">{collection.name}</h3>
+                  <p className="text-muted-foreground text-[10px] font-body mt-1 uppercase tracking-widest">Collection</p>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 

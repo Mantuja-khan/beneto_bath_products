@@ -33,7 +33,7 @@ const WhyUsPage = () => (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {reasons.map((r) => (
                 <div key={r.title} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg hover:bg-white/15 transition-all text-center">
-                  <r.icon className="text-blue-400 mb-4 mx-auto" size={36} strokeWidth={1.5} />
+                  <r.icon className="text-[#FDC601] mb-4 mx-auto" size={36} strokeWidth={1.5} />
                   <h3 className="font-heading text-lg font-semibold text-white mb-3">{r.title}</h3>
                   <p className="text-white/80 text-sm font-body leading-relaxed">{r.desc}</p>
                 </div>

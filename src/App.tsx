@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollProgress from "./components/ScrollProgress";
 import { CartProvider } from "./contexts/CartContext";
 
 const AboutPage = lazy(() => import("./pages/AboutPage"));
@@ -27,6 +28,7 @@ const App = () => (
       <Sonner />
       <CartProvider>
         <BrowserRouter>
+          <ScrollProgress />
           <ScrollToTop />
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>

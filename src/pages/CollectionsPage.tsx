@@ -27,7 +27,7 @@ const CollectionsPage = () => {
                             {collectionDetails.map((c) => (
                                 <Link
                                     key={c.name}
-                                    to={`/collection/${c.name.toLowerCase()}`}
+                                    to={`/collection/${encodeURIComponent(c.name.toLowerCase())}`}
                                     className="group block relative overflow-hidden rounded-lg aspect-[4/3] bg-secondary"
                                 >
                                     <img

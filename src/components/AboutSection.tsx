@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Award, Droplets, Shield } from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { Award, Droplets, Shield, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const AboutSection = () => (
@@ -11,7 +11,7 @@ const AboutSection = () => (
 
         {/* Heading with animated wavy underline */}
         <div className="inline-block mb-6">
-          <h2 className="section-title text-blue-600">About Us</h2>
+          <h2 className="section-title text-foreground">About Us</h2>
           <div className="mt-2 flex justify-center overflow-hidden">
             <svg
               viewBox="0 0 200 12"
@@ -33,7 +33,7 @@ const AboutSection = () => (
                 <path
                   d="M0,6 C10,0 20,12 30,6 C40,0 50,12 60,6 C70,0 80,12 90,6 C100,0 110,12 120,6 C130,0 140,12 150,6 C160,0 170,12 180,6 C190,0 200,12 210,6 C220,0 230,12 240,6 C250,0 260,12 270,6 C280,0 290,12 300,6 C310,0 320,12 330,6 C340,0 350,12 360,6 C370,0 380,12 390,6 C400,0 410,12 420,6"
                   fill="none"
-                  stroke="#D4A017"
+                  stroke="#FDC601"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
@@ -51,12 +51,19 @@ const AboutSection = () => (
             { icon: Award, title: "Premium Quality", desc: "Every product undergoes rigorous quality testing to ensure lasting durability." },
             { icon: Droplets, title: "Water Efficient", desc: "Eco-friendly designs that save water without compromising performance." },
             { icon: Shield, title: "10 Year Warranty", desc: "We stand behind our products with a comprehensive warranty program." },
-          ].map((item) => (
-            <div key={item.title} className="p-8 border border-border hover:border-foreground/20 transition-colors group">
+          ].map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="p-8 border border-border hover:border-foreground/20 transition-colors group bg-background"
+            >
               <item.icon className="mx-auto mb-4 text-accent" size={32} strokeWidth={1.5} />
               <h3 className="font-heading text-lg font-semibold mb-2">{item.title}</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 

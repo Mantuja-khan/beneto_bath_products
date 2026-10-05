@@ -80,8 +80,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     const totalPrice = cart.reduce((sum, item) => {
-        // Assuming price is formatted like "₹2,500" or similar. We need to parse it.
-        const numericPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+        // Assuming price is formatted like "₹2,500" or similar. We need to parse it safely.
+        const firstPricePart = item.price.split("/")[0];
+        const numericPrice = parseFloat(firstPricePart.replace(/[^0-9.-]+/g, ""));
         return sum + (isNaN(numericPrice) ? 0 : numericPrice * item.quantity);
     }, 0);
 

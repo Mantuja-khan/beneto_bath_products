@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Wrench, Truck, Headphones, PenTool, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const services = [
@@ -17,7 +18,7 @@ const ServicesSection = () => (
 
         {/* Heading with animated wavy underline */}
         <div className="flex flex-col items-center mb-12">
-          <h2 className="section-title text-blue-600">Our Services</h2>
+          <h2 className="section-title text-foreground">Our Services</h2>
           <div className="mt-2 overflow-hidden">
             <svg
               viewBox="0 0 200 12"
@@ -38,7 +39,7 @@ const ServicesSection = () => (
                 <path
                   d="M0,6 C10,0 20,12 30,6 C40,0 50,12 60,6 C70,0 80,12 90,6 C100,0 110,12 120,6 C130,0 140,12 150,6 C160,0 170,12 180,6 C190,0 200,12 210,6 C220,0 230,12 240,6 C250,0 260,12 270,6 C280,0 290,12 300,6 C310,0 320,12 330,6 C340,0 350,12 360,6 C370,0 380,12 390,6 C400,0 410,12 420,6"
                   fill="none"
-                  stroke="#D4A017"
+                  stroke="#FDC601"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
@@ -47,8 +48,15 @@ const ServicesSection = () => (
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-          {services.map((s) => (
-            <div key={s.title} className="group border border-border flex flex-col md:flex-row items-stretch hover:border-foreground/20 hover:shadow-lg transition-all bg-background overflow-hidden rounded-lg">
+          {services.map((s, idx) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="group border border-border flex flex-col md:flex-row items-stretch hover:border-foreground/20 hover:shadow-lg transition-all bg-background overflow-hidden rounded-lg"
+            >
               <div className="w-full md:w-2/5 shrink-0 overflow-hidden relative min-h-[200px] md:min-h-full">
                 <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
@@ -57,7 +65,7 @@ const ServicesSection = () => (
                 <h3 className="font-heading text-xl font-semibold mb-2 text-foreground">{s.title}</h3>
                 <p className="text-muted-foreground text-sm font-body leading-relaxed">{s.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="text-center">

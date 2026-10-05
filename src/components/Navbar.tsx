@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import faucetImg from "@/assets/product-faucet.jpg";
 import showerImg from "@/assets/product-shower.jpg";
 import accessoriesImg from "@/assets/product-accessories.jpg";
+import logoImg from "@/assets/logo.png";
 import { useCart } from "@/contexts/CartContext";
 import {
   Sheet,
@@ -156,7 +157,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-6">
               {cart.map((item) => (
                 <div key={item.id} className="flex gap-4 border-b border-border pb-6">
-                  <img src={item.img} alt={item.name} className="w-20 h-20 object-contain bg-secondary rounded" />
+                  <img src={item.img} alt={item.name} className="w-20 h-20 object-contain bg-white border border-border/50 rounded p-1" />
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
                       <h4 className="font-body text-sm font-semibold max-w-[200px] truncate">{item.name}</h4>
@@ -238,14 +239,17 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-16 xl:px-24 h-16 lg:h-20">
           <Link
             to="/"
-            className="inline-block font-heading text-xl lg:text-2xl font-bold tracking-tight text-black hover:scale-105 transition-transform duration-300"
+            className="flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 group py-1"
+            aria-label="BENETO - Bath Solution"
           >
-            <div className="flex flex-col leading-tight">
-              <span>BENETO</span>
-              <span className="text-[8px] lg:text-xs font-medium tracking-[2px] text-gray-500">
-                THE BATH SOLUTION
-              </span>
-            </div>
+            <img
+              src={logoImg}
+              alt="BENETO"
+              className="h-8 sm:h-9 lg:h-10 w-auto max-w-[170px] sm:max-w-[200px] lg:max-w-[230px] object-contain mix-blend-multiply"
+            />
+            <span className="text-[8px] sm:text-[9px] lg:text-[10px]  uppercase tracking-[0.3em] text-[#FFCC2A] -mt-0.5 group-hover:text-accent transition-colors leading-none font-sans">
+              Bath Solution
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -280,7 +284,7 @@ const Navbar = () => {
                           to={`/products?category=${cat}`}
                           className="flex items-center gap-3 px-4 py-2 text-sm font-body text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                         >
-                          <img src={categoryImages[cat]} alt={cat} className="w-8 h-8 object-contain rounded bg-secondary" />
+                          <img src={categoryImages[cat]} alt={cat} className="w-8 h-8 object-contain rounded bg-white border border-border/50 p-0.5" />
                           {cat}
                         </Link>
                       ))}
@@ -298,15 +302,15 @@ const Navbar = () => {
                       </Link>
                       <div className="border-t border-border my-1" />
                       {collections.map((c) => {
-                        const sample = allProducts.find((p) => p.collection === c);
+                        const sample = allProducts.find((p) => p.collection === c) || brandExclusiveProducts.find((p) => p.collection === c) || collectionDetails.find((d) => d.name === c);
                         return (
                           <Link
                             key={c}
-                            to={`/collection/${c.toLowerCase()}`}
+                            to={`/collection/${encodeURIComponent(c.toLowerCase())}`}
                             className="flex items-center gap-3 px-4 py-2 text-sm font-body text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                           >
                             {sample && (
-                              <img src={sample.img} alt={c} className="w-8 h-8 object-contain rounded bg-secondary" />
+                              <img src={sample.img} alt={c} className="w-8 h-8 object-contain rounded bg-white border border-border/50 p-0.5" />
                             )}
                             {c}
                           </Link>
@@ -375,7 +379,7 @@ const Navbar = () => {
                 key={p.id}
                 onClick={() => handleSelect(p.id)}
                 className="w-full flex items-center gap-4 px-4 sm:px-6 lg:px-16 xl:px-24 py-3 hover:bg-secondary transition-colors text-left">
-                <img src={p.img} alt={p.name} className="w-10 h-10 object-contain bg-secondary rounded" />
+                <img src={p.img} alt={p.name} className="w-10 h-10 object-contain bg-white border border-border/50 rounded p-0.5" />
                 <div>
                   <p className="text-sm font-body text-foreground">{p.name}</p>
                   <p className="text-xs font-body text-muted-foreground">
@@ -415,7 +419,7 @@ const Navbar = () => {
                         to={`/products?category=${cat}`}
                         className="flex items-center gap-3 text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        <img src={categoryImages[cat]} alt={cat} className="w-6 h-6 object-contain rounded bg-secondary" />
+                        <img src={categoryImages[cat]} alt={cat} className="w-6 h-6 object-contain rounded bg-white border border-border/50 p-0.5" />
                         {cat}
                       </Link>
                     ))}
@@ -427,15 +431,15 @@ const Navbar = () => {
                       All Collections
                     </Link>
                     {collections.map((c) => {
-                      const sample = allProducts.find((p) => p.collection === c);
+                      const sample = allProducts.find((p) => p.collection === c) || brandExclusiveProducts.find((p) => p.collection === c) || collectionDetails.find((d) => d.name === c);
                       return (
                         <Link
                           key={c}
-                          to={`/collection/${c.toLowerCase()}`}
+                          to={`/collection/${encodeURIComponent(c.toLowerCase())}`}
                           className="flex items-center gap-3 text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
                         >
                           {sample && (
-                            <img src={sample.img} alt={c} className="w-6 h-6 object-contain rounded bg-secondary" />
+                            <img src={sample.img} alt={c} className="w-6 h-6 object-contain rounded bg-white border border-border/50 p-0.5" />
                           )}
                           {c}
                         </Link>

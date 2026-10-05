@@ -101,9 +101,9 @@ const ProductDetailPage = () => {
 
               {/* Image Section */}
               <div className="relative">
-                {/* Subtle background accent */}
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted rounded-sm -z-0" />
-                <div className="relative z-10 aspect-square flex items-center justify-center p-10">
+                {/* Pure white background for product image */}
+                <div className="absolute inset-0 bg-white border border-border/80 rounded-sm -z-0 shadow-sm" />
+                <div className="relative z-10 aspect-square flex items-center justify-center p-8 bg-white rounded-sm">
                   <ImageMagnifier src={product.img} alt={product.name} />
                 </div>
                 {/* Collection badge overlay */}
@@ -121,20 +121,38 @@ const ProductDetailPage = () => {
               <div className="flex flex-col justify-center lg:py-4">
 
                 {/* Name */}
-                {product.name.includes(" ") ? (
-                  <div className="mb-3">
-                    <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                      {product.name.split(" ")[0]}
+                {(() => {
+                  const match = product.name.match(/^([A-Za-z0-9_\-]+(?:\s*\/\s*[A-Za-z0-9_\-]+)*)\s+(.*)$/);
+                  if (match) {
+                    return (
+                      <div className="mb-3">
+                        <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                          {match[1]}
+                        </h1>
+                        <h2 className="font-heading text-xl md:text-2xl font-medium text-muted-foreground mt-1">
+                          {match[2]}
+                        </h2>
+                      </div>
+                    );
+                  }
+                  if (product.name.includes(" ")) {
+                    return (
+                      <div className="mb-3">
+                        <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                          {product.name.split(" ")[0]}
+                        </h1>
+                        <h2 className="font-heading text-xl md:text-2xl font-medium text-muted-foreground mt-1">
+                          {product.name.substring(product.name.indexOf(" ") + 1)}
+                        </h2>
+                      </div>
+                    );
+                  }
+                  return (
+                    <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
+                      {product.name}
                     </h1>
-                    <h2 className="font-heading text-xl md:text-2xl font-medium text-muted-foreground mt-1">
-                      {product.name.substring(product.name.indexOf(" ") + 1)}
-                    </h2>
-                  </div>
-                ) : (
-                  <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
-                    {product.name}
-                  </h1>
-                )}
+                  );
+                })()}
 
                 {/* Price */}
                 <div className="flex items-center gap-3 mb-5">
@@ -182,7 +200,7 @@ const ProductDetailPage = () => {
                   </Link>
                   {product.collection && (
                     <Link
-                      to={`/collection/${product.collection.toLowerCase()}`}
+                      to={`/collection/${encodeURIComponent(product.collection.toLowerCase())}`}
                       className="border border-foreground text-foreground px-8 py-3 font-body text-xs uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-colors flex-1 text-center lg:flex-none"
                     >
                       View Collection

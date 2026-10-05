@@ -13,7 +13,6 @@ const values = [
   { icon: Target, title: "Innovation Driven", desc: "Constantly researching and developing new technologies for better bathroom solutions.", img: "https://i.pinimg.com/736x/d5/6a/42/d56a420d75684cb4180ee722f2a6fe4a.jpg" },
   { icon: Heart, title: "Customer First", desc: "Your satisfaction is our priority. We go above and beyond to exceed expectations.", img: "https://i.pinimg.com/1200x/cb/da/4c/cbda4cf3932db1201ab5bffc6e078c48.jpg" },
 ];
-
 // ── Add / change your 4 story images here ──────────────────────────────────
 const storyImages = [
   "https://i.pinimg.com/1200x/41/dd/7c/41dd7c1f547a6b23b639411f8f012ff7.jpg",
@@ -151,7 +150,7 @@ const AboutPage = () => (
               >
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
                 <div className="relative z-10 w-full h-full">
-                  <item.icon className="mx-auto mb-4 text-blue-400" size={36} strokeWidth={1.5} />
+                  <item.icon className="mx-auto mb-4 text-[#FDC601]" size={36} strokeWidth={1.5} />
                   <h3 className="font-heading text-xl text-white font-semibold mb-3">{item.title}</h3>
                   <p className="text-white/80 text-sm font-body leading-relaxed">{item.desc}</p>
                 </div>

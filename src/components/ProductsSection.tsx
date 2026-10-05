@@ -18,7 +18,7 @@ const ProductsSection = () => {
 
           {/* Heading with animated wavy underline */}
           <div className="flex flex-col items-center mb-12">
-            <h2 className="section-title text-blue-600">Products</h2>
+            <h2 className="section-title text-foreground">Products</h2>
             <div className="mt-2 overflow-hidden">
               <svg
                 viewBox="0 0 200 12"
@@ -39,7 +39,7 @@ const ProductsSection = () => {
                   <path
                     d="M0,6 C10,0 20,12 30,6 C40,0 50,12 60,6 C70,0 80,12 90,6 C100,0 110,12 120,6 C130,0 140,12 150,6 C160,0 170,12 180,6 C190,0 200,12 210,6 C220,0 230,12 240,6 C250,0 260,12 270,6 C280,0 290,12 300,6 C310,0 320,12 330,6 C340,0 350,12 360,6 C370,0 380,12 390,6 C400,0 410,12 420,6"
                     fill="none"
-                    stroke="#D4A017"
+                    stroke="#FDC601"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                   />

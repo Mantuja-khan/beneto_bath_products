@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import bgImg from "@/assets/hero-bathroom.jpg";
+import logoImg from "@/assets/logo.png";
 
 const Footer = () => (
   <footer
@@ -10,12 +11,15 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto relative z-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
         <div>
-          <div className="flex flex-col leading-tight">
-            <span>BENETO</span>
-            <span className="text-[8px] lg:text-xs font-medium tracking-[2px] text-gray-500">
-              THE BATH SOLUTION
-            </span>
-          </div>          <p className="text-sm font-body opacity-70 leading-relaxed">
+          <Link to="/" className="inline-block mb-3 group">
+            <div className="bg-white rounded-md px-3.5 py-2 inline-flex flex-col items-center justify-center shadow-md">
+              <img src={logoImg} alt="BENETO Bath Solution" className="h-8 sm:h-9 w-auto max-w-[190px] object-contain" />
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.28em] text-[#FFCC2A] -mt-0.5 leading-none font-sans">
+                Bath Solution
+              </span>
+            </div>
+          </Link>
+          <p className="text-sm font-body opacity-70 leading-relaxed">
             Premium bathroom fittings & accessories for modern homes.
           </p>
         </div>

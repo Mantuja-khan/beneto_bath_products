@@ -9,14 +9,24 @@ import { ArrowLeft } from "lucide-react";
 const CollectionPage = () => {
     const { name } = useParams<{ name: string }>();
 
+    const clean = (s?: string) => s?.toLowerCase().replace(/[^a-z0-9]/g, "") || "";
+    const decodedName = name ? decodeURIComponent(name).toLowerCase() : "";
+
     // Find the collection detail to get the hero image
     const collectionDetail = collectionDetails.find(
-        (c) => c.name.toLowerCase() === name?.toLowerCase()
+        (c) =>
+            c.name.toLowerCase() === decodedName ||
+            clean(c.name) === clean(decodedName) ||
+            clean(c.name).includes(clean(decodedName)) ||
+            clean(decodedName).includes(clean(c.name))
     );
 
     // Filter products directly from brandExclusiveProducts
     const collectionProducts = brandExclusiveProducts.filter(
-        (p) => p.collection?.toLowerCase() === name?.toLowerCase()
+        (p) =>
+            p.collection?.toLowerCase() === decodedName ||
+            clean(p.collection) === clean(decodedName) ||
+            (collectionDetail && clean(p.collection) === clean(collectionDetail.name))
     );
 
     if (!collectionDetail) {

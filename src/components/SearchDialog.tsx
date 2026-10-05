@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, X } from "lucide-react";
 import { allCombinedProducts as allProducts } from "@/data/products";
+import { brandExclusiveProducts } from "@/data/collections";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface SearchDialogProps {
@@ -13,12 +14,15 @@ const SearchDialog = ({ open, onClose }: SearchDialogProps) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
+  const searchableProducts = [...allProducts, ...brandExclusiveProducts];
+
   const results = query.length > 0
-    ? allProducts.filter(
-      (p) =>
-        p.name.toLowerCase().includes(query.toLowerCase()) ||
+    ? searchableProducts.filter(
+      (p, index, self) =>
+        index === self.findIndex((item) => item.id === p.id) &&
+        (p.name.toLowerCase().includes(query.toLowerCase()) ||
         p.collection?.toLowerCase().includes(query.toLowerCase()) ||
-        p.category.toLowerCase().includes(query.toLowerCase())
+        p.category.toLowerCase().includes(query.toLowerCase()))
     ).slice(0, 8)
     : [];
 
@@ -86,7 +90,7 @@ const SearchDialog = ({ open, onClose }: SearchDialogProps) => {
                       onClick={() => handleSelect(p.id)}
                       className="w-full flex items-center gap-4 px-4 py-3 hover:bg-secondary transition-colors text-left"
                     >
-                      <img src={p.img} alt={p.name} className="w-10 h-10 object-contain bg-secondary" />
+                      <img src={p.img} alt={p.name} className="w-10 h-10 object-contain bg-white rounded border border-border/50 p-0.5" />
                       <div>
                         <p className="text-sm font-body text-foreground">{p.name}</p>
                         <p className="text-xs font-body text-muted-foreground">
