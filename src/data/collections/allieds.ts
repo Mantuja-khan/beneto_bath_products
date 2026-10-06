@@ -1,24 +1,5 @@
 import { Product } from "../types";
-import CCD_212 from "@/assets/CCD-212.jpg";
-import CCD_213 from "@/assets/CCD-213.jpg";
-import CCD_214 from "@/assets/CCD-214.jpg";
-import CCD_215 from "@/assets/CCD-215.jpg";
-import CCD_216 from "@/assets/CCD-216.jpg";
-import CCD_217 from "@/assets/CCD-217.jpg";
-import CCD_218 from "@/assets/CCD-218.jpg";
-import CCD_220 from "@/assets/CCD-220.jpg";
-import CCP_021 from "@/assets/CCP-021.jpg";
-import CCP_022 from "@/assets/CCP-022.jpg";
-import FLV_251 from "@/assets/FLV-251.jpg";
-import FLV_253 from "@/assets/FLV-253.jpg";
-import FLV_254 from "@/assets/FLV-254.jpg";
-import FLV_255 from "@/assets/FLV-255.jpg";
-import FLV_257 from "@/assets/FLV-257.jpg";
-import PAV_001 from "@/assets/PAV-001.jpg";
-import PAV_002 from "@/assets/PAV-002.jpg";
-import PAV_003 from "@/assets/PAV-003.jpg";
-import PAV_004 from "@/assets/PAV-004.jpg";
-import PAV_005 from "@/assets/PAV-005.jpg";
+
 import WCP_001 from "@/beneto_imgs/WCP001.jpg";
 import WCP_002 from "@/beneto_imgs/WCP002.jpg";
 import WCP_003 from "@/beneto_imgs/WCP003.jpg";
